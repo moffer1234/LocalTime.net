@@ -1,16 +1,20 @@
+from urllib import response
+
 from fastapi import FastAPI
 import httpx
 
 app = FastAPI()
 
 @app.get("/time")
+
 def get_time():
-    response = httpx.get("http://worldtimeapi.org/api/timezone/Etc/UTC")
+    response = httpx.get("https://timeapi.io/api/v1/time/current/zone/?timeZone=UTC")
     if response.status_code == 200:
         data = response.json()
-        return {"utc_datetime": data["utc_datetime"]}
+        print(data)
+        return {"date_time": data["date_time"]}
+
     else:
         return {"error": "Unable to fetch time"}
-
 
     
