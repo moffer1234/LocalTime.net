@@ -11,7 +11,7 @@ def home():
     return FileResponse("index.html")
 
 @app.get("/time")
-async def get_time():
+async def get_UTC_time():
     async with httpx.AsyncClient() as client:
         response = await client.get(
             "https://timeapi.io/api/v1/time/current/zone/?timeZone=UTC"
