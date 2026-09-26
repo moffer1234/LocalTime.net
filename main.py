@@ -1,7 +1,12 @@
 from fastapi import FastAPI
 import httpx
+from fastapi.responses import FileResponse
 
 app = FastAPI()
+
+@app.get("/")
+def home():
+    return FileResponse("index.html")
 
 @app.get("/time")
 async def get_time():
