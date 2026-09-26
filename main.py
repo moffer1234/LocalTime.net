@@ -17,4 +17,5 @@ def get_time():
     else:
         return {"error": "Unable to fetch time"}
 
-    
+
+get_time()
