@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Time</title>
+</head>
+<body>
+
+
+    <script>
+        const timeGetUrl = "127.0.0.1:8000/time";
+        async function getLocalTime() {
+            const response = await fetch(timeGetUrl);
+            const data = await response.json();
+            document.body.innerHTML = `<h1>Local Time: ${data.date_time}</h1>`;
+        }
+    </script>
+</body>
+</html>
